@@ -18,7 +18,7 @@ separator() {
   echo -n "\"border\":\"$bg_bar_color\","
   echo -n "\"border_left\":0,"
   echo -n "\"border_right\":0,"
-  echo -n "\"border_top\":2,"
+  echo -n "\"border_top\":1,"
   echo -n "\"border_bottom\":2,"
   echo -n "\"color\":\"$1\","
   echo -n "\"background\":\"$2\""
@@ -37,7 +37,7 @@ common() {
 
 myip_public() {
   local bg="#1976D2"
-  separator $bg "#FFD180"
+  separator $bg "#000000"
   echo -n ",{"
   echo -n "\"name\":\"ip_public\","
   echo -n "\"full_text\":\" $(~/.config/i3status/ip.py) \","
@@ -48,7 +48,7 @@ myip_public() {
 
 myip_local() {
   local bg="#2E7D32" # vert
-  separator $bg $bg_separator_previous
+  separator $bg
   echo -n ",{"
   echo -n "\"name\":\"ip_local\","
   echo -n "\"full_text\":\"  $(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p') \","
